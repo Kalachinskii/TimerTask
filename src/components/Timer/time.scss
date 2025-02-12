@@ -1,0 +1,19 @@
+$id-time: (
+    1: 40,
+    2: 30,
+);
+
+.time {
+    @each $id, $time in $id-time {
+        // .message--primary
+        // &--#{$status} = --primary
+        &--#{$id} {
+            background: $time;
+        }
+    }
+}
+/*
+.time--1 {
+    background: 40;
+}
+*/ 

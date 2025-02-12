@@ -55,10 +55,10 @@
 }
 
 .stop-one {
-    stop-color: #2bff00; /* Зеленый */
+    stop-color: #2bff00;
     stop-opacity: 1;
 }
 .stop-mid {
-    stop-color: #fbff00; /* Желтый как промежуточный цвет */
+    stop-color: #fbff00;
     stop-opacity: 1;
 }

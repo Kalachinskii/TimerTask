@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from '../timer.module.css';
+// import '../time.sass';
 
-export function Timer() {
+export function Timer({seconds, id}) {
     // время таймера+анимации
-    const [time, setTime] = useState(10);
+    const [time, setTime] = useState(seconds);
     
     // таймер
     useEffect(() => {
@@ -21,7 +22,10 @@ export function Timer() {
 
     // цветовая схема таймера
     useEffect(() => {
-        document.documentElement.style.setProperty('--my-variable', `${time}s`);
+        document.documentElement.style.setProperty(`--my-variable`, `${time}s`);
+        // одиночный вывод, при отслеживании time некоректно работает
+        // одиночный вывод для 1 карточки работает хорошо
+        // для 2 и более график вырисовываеться по последниму элементу массива т.к. перезаписывает --my-variable
     }, [])
 
     return (

@@ -9,7 +9,9 @@ export function App() {
   return (
     <div className={styles['app']}>
       <FormItem />
-      <TaskCard />
+      <div className={styles['box']}>
+        <TaskCard />
+      </div>
     </div>
   )
 }
