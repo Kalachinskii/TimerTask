@@ -1,7 +1,46 @@
 .task-card {
+    margin-top: 1%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    border: 1px solid #A35709;
+    backdrop-filter: invert(80%);
+    background-color: #1f1e1b;
+    border-radius: 25px;
+}
+
+.task-card:hover {
+    outline: 1px solid #dd8303;
+    box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
+    inset 0px 0px 8px rgba(163, 87, 9, 0.8);
+}
+
+h1 {
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.btn-card button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 15px;
+    font-size: 28px;
+    z-index: 0;
+    background: none;
+    border: none;
+}
+
+.btn-card button i {
+    z-index: 1;
+}
+
+.btn-card button i:hover {
+    cursor: pointer;
+    color: red;
 }
