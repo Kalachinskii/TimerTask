@@ -17,7 +17,7 @@ export function FormItem() {
                     <input type="text" name='time' placeholder='Введите время в секундах'/>
                 </div>
                 <button className={styles['btn']}>
-                    <i class="fa-solid fa-plus"></i>
+                    <i className="fa-solid fa-plus"></i>
                 </button>
             </form>
         </>

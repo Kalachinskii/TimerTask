@@ -42,7 +42,7 @@ export function Timer({seconds, id}) {
                         <circle cx="150" cy="150" r="75" strokeWidth="8" fill="none" className={styles['progress']}></circle>
                     </svg>
                     <div className={styles['counter']}>
-                        {time > 0 || <i class="fa-solid fa-face-tired"></i>}
+                        {time > 0 || <i className="fa-solid fa-face-tired"></i>}
                         {/* вывод 00.00.00 времени, time - в секкундах */}
                         {time > 0 && new Date(time * 1000).toISOString().substr(11, 8)}
                     </div>

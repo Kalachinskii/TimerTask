@@ -28,8 +28,8 @@ export function TaskCard() {
             <Timer stopTime={playPauseStatys} seconds={el.time} id={el.id}/>
             <div className={styles['btn-card']}>
                 <button onClick={togleImg}>
-                    {!playPauseStatys && <i class="fa-solid fa-pause"></i>}
-                    {playPauseStatys && <i class="fa-solid fa-play"></i>}
+                    {!playPauseStatys && <i className="fa-solid fa-pause"></i>}
+                    {playPauseStatys && <i className="fa-solid fa-play"></i>}
                 </button>
                 {/* <i class="fa-solid fa-medal"></i> */}
             </div>
