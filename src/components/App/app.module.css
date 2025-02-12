@@ -22,3 +22,10 @@
   width: 90%;
   justify-content: center;
 }
+
+.box-suc-fai {
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

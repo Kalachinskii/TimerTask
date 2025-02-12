@@ -1,0 +1,28 @@
+.task-list {
+    min-width: 300px;
+    min-height: 208px;
+    color: #f0e3ca;
+    border: 1px solid #a35709;
+    border-radius: 25px;
+    margin-top: 1%;
+}
+
+ul {
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    list-style-type: none;
+}
+
+li {
+    border-top: 1px solid #a35709;
+    border-bottom: 1px solid #a35709;
+    background: #1f1e1b;
+    padding-left: 5px;
+}
+
+li:hover {
+    border-top: 1px solid #ff8303;
+    border-bottom: 1px solid #ff8303;
+}

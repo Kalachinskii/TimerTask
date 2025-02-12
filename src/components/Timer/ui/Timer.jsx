@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from '../timer.module.css';
 // import '../time.sass';
 
-export function Timer({seconds, id}) {
+export function Timer({seconds}) {
     // время таймера+анимации
     const [time, setTime] = useState(seconds);
     
