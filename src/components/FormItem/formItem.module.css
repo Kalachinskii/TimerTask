@@ -68,3 +68,7 @@ i {
 .btn:hover i {
     color: #dd8303;
 }
+
+.error {
+    background: rgba(255, 0, 0, 0.075) !important;
+}
