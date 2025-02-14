@@ -39,7 +39,7 @@ export function App() {
     setItems(oldItems => [...oldItems, {
       task: item.task,
       time: item.time,
-      id: 1
+      id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1
     }]);
   };
 
