@@ -1,32 +1,30 @@
 import { Failed } from '../../Failed/failed';
 import { FormItem } from '../../FormItem/formItem';
 import { Success } from '../../Success/success';
-import { TaskCard } from '../../Task/taskCard';
+import { ActiveTaskCard } from '../../ActiveTaskCard/ActiveTaskCard';
 import { TaskList } from '../../TaskList/taskList';
 import styles from '../app.module.css';
+import { useState } from 'react';
 
 
 
 export function App() {
+  const [items, setItems] = useState([]);
 
-  // задачи
-  const data = [{task: 'Вынести мусор', time: '10', id: 1},
-      {task: 'Зделать коммит', time: '20', id: 2},
-      // {task: 'Поза страуса', time: '40', id: 3},
-      // {task: 'Поза', time: '40', id: 4},
-      // {task: 'Поза 2', time: '40', id: 5},
-      // {task: 'Зделать коммит', time: '750', id: 6},
-      // {task: 'Поза страуса', time: '40', id: 7},
-      // {task: 'Поза', time: '40', id: 8},
-      // {task: 'Поза 2', time: '40', id: 9},
-  ]
+  const addItem = item => {
+    setItems(oldItems => [...oldItems, {
+      task: item.task,
+      time: item.time,
+      id: 1
+    }]);
+  };
 
   return (
     <div className={styles['app']}>
-      <FormItem />
+      <FormItem addItem={addItem}/>
       <div className={styles['box']}>
-        <TaskList tasks={data}/>
-        <TaskCard />
+        <TaskList tasks={items}/>
+        <ActiveTaskCard />
         <div className={styles['box-suc-fai']}>
           <Success />
           <Failed />

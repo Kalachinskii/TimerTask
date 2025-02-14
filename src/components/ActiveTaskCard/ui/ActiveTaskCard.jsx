@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Timer } from '../../Timer/timer';
-import styles from '../taskCard.module.css';
+import styles from '../activeTaskCard.module.css';
 
-export function TaskCard() {
+export function ActiveTaskCard() {
     const [playPauseStatys, setPlayPauseStatys] = useState(false);
 
     const togleImg = () => {
@@ -18,7 +18,6 @@ export function TaskCard() {
                     {!playPauseStatys && <i className="fa-solid fa-pause"></i>}
                     {playPauseStatys && <i className="fa-solid fa-play"></i>}
                 </button>
-                {/* <i class="fa-solid fa-medal"></i> */}
             </div>
         </div>
     );
