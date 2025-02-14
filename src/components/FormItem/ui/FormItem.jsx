@@ -6,6 +6,7 @@ export function FormItem({addItem}) {
     const [taskError, setTaskError] = useState('');
     const taskRef = useRef();
     const timeRef = useRef();
+    const formRef = useRef();
 
     const addTaskItem = (e) => {
         e.preventDefault();
@@ -32,6 +33,8 @@ export function FormItem({addItem}) {
         // { name: 'Alice', age: 25 }
         const formProps = Object.fromEntries(formData);
         addItem(formProps);
+        // очистка формы
+        formRef.current.reset();
     }
 
     const focusInput = (ref) => {
@@ -44,7 +47,7 @@ export function FormItem({addItem}) {
                 {taskError && <p style={{ color: 'red' }}>{taskError}</p>}
                 {timeError && <p style={{ color: 'red' }}>{timeError}</p>}
             </div>
-            <form action="" className={styles['formItem']} onSubmit={addTaskItem}>
+            <form ref={formRef} action="" className={styles['formItem']} onSubmit={addTaskItem}>
                 <div className={styles['formInput']}>
                     <input ref={taskRef} type="text" name='task' placeholder='Введите задачу' className={taskError ? styles['error'] : ''} />
                     <input ref={timeRef} type="text" name='time' placeholder='Введите время в секундах' className={timeError ? styles['error'] : ''}/>
