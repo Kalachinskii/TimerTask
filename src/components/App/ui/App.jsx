@@ -18,7 +18,7 @@ export function App() {
     if (!localStorage.getItem(key)) {
         localStorage.setItem(key, JSON.stringify([]));
     }
-    // если данные есть - парсим
+    // если данные есть - вытаскиваем
     const data = JSON.parse(localStorage.getItem(key));
     if (data) {
       setItems(data.map(item => ({
@@ -49,11 +49,23 @@ export function App() {
     localStorage.setItem('data', JSON.stringify([]));
   }
 
+  const deleteTask = (id) => {
+    // Получаем текущие элементы из localStorage
+    const items = JSON.parse(localStorage.getItem('data')) || [];
+    // Фильтруем элементы, исключая тот, который нужно удалить
+    const updatedItems = items.filter(item => item.id !== id);
+    // Сохраняем обновленный массив обратно в localStorage
+    localStorage.setItem('data', JSON.stringify(updatedItems));
+    // отрисовка
+    if (updatedItems) {
+      setItems(updatedItems.map(item => ({...item})))}
+  }
+
   return (
     <div className={styles['app']}>
       <FormItem addItem={addItem}/>
       <div className={styles['box']}>
-        <TaskList tasks={items}/>
+        <TaskList tasks={items} deleteTask={deleteTask}/>
         <ActiveTaskCard />
         <div className={styles['box-suc-fai']}>
           <Success />

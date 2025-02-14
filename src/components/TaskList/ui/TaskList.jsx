@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../taskList.module.css';
 
-export function TaskList({tasks}) {
+export function TaskList({tasks, deleteTask}) {
     return (
         <div className={styles['task-list']}>
             <h1>Задачи</h1>
@@ -10,7 +10,7 @@ export function TaskList({tasks}) {
                 {tasks.map(el => (
                     <div className={styles["task"]} key={el.id}> 
                         <div className={styles["task-time"]}>
-                        <h2>{el.id}</h2>
+                        {/* <h2>{el.id}</h2> */}
                             <h3>{el.task}</h3>
                             <h5>
                                 <span>Время: </span>
@@ -19,7 +19,7 @@ export function TaskList({tasks}) {
                         </div>
                         <div className={styles["task-btn"]}>
                             <i className="fa-solid fa-pen"></i>
-                            <i className="fa-solid fa-trash"></i>
+                            <i className="fa-solid fa-trash" onClick={() => deleteTask(el.id)}></i>
                         </div>
                     </div>
                 ))}
