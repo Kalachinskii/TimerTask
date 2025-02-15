@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styles from '../taskList.module.css';
 
 export function TaskList({tasks, deleteTask, activeTask}) {
@@ -7,7 +6,7 @@ export function TaskList({tasks, deleteTask, activeTask}) {
             <h1>Задачи</h1>
             
             <div className={styles['tasks']}>
-                {tasks.map(el => (
+                {tasks.map(el => !el.failed && !el.completed && (
                     <div className={styles["task"]} key={el.id} onClick={() => activeTask(el.id)}> 
                         <div className={styles["task-time"]}>
                             <h3>{el.task}</h3>

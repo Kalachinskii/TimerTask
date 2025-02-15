@@ -10,6 +10,7 @@
     backdrop-filter: invert(80%);
     background-color: #1f1e1b;
     border-radius: 25px;
+    padding-bottom: 25px;
 }
 
 h1 {
@@ -18,28 +19,29 @@ h1 {
     text-align: center;
 }
 
-.task-card .play-pause i{
-    width: 20px;
+.task-card .play-pause i,
+.task-card .completed i {
     text-align: center;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0%;
-    left: 0%;
+    height: 8%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 35px;
-    opacity: 0;
-}
-
-.task-card .play-pause i:hover {
-    background-color: #1b1a17fb;
-    border-radius: 25px;
-    opacity: 1;
-    color: #A35709;
+    font-size: 22px;
     box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
     inset 0px 0px 8px rgba(163, 87, 9, 0.8);
+    border-radius: 25px;
+}
+
+.task-card .play-pause i {
+    bottom: 6%;
+    left: 8%;
+}
+
+.task-card .completed i {
+    bottom: 6%;
+    right: 8%;
 }
 
 .task-card h1 {

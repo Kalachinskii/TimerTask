@@ -2,13 +2,16 @@ import { useEffect, useState } from 'react';
 import styles from '../timer.module.css';
 // import '../time.sass';
 
-export function Timer({second, pause}) {
+export function Timer({second, pause, id, failedTask}) {
     const [time, setTime] = useState(second);
     const [isAnimating, setIsAnimating] = useState(false);
     
     // Таймер
     useEffect(() => {
         if (time < 0) return;
+        if (time === 0) {
+            failedTask(id);
+        };
 
         const timerId = setInterval(() => {
             setTime(prevTime => prevTime - 1);
@@ -61,7 +64,6 @@ export function Timer({second, pause}) {
                         />
                     </svg>
                     <div className={styles['counter']}>
-                        {time > 0 || <i className="fa-solid fa-hourglass-start"></i>}
                         {time > 0 && new Date(time * 1000).toISOString().substr(11, 8)}
                     </div>
                 </div>

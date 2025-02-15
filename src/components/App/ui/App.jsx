@@ -37,16 +37,15 @@ export function App() {
     setItems(oldItems => [...oldItems, {
       task: item.task,
       time: item.time,
+      completed: false,
+      failed: false,
       id: oldItems.length > 0 ? Math.max(...oldItems.map(i => i.id)) + 1 : 1
     }]);
   };
 
   const deleteTask = (id) => {
-    // Получаем текущие элементы из localStorage
     const items = JSON.parse(localStorage.getItem('data')) || [];
-    // Фильтруем элементы, исключая тот, который нужно удалить
     const updatedItems = items.filter(item => item.id !== id);
-    // Сохраняем обновленный массив обратно в localStorage
     localStorage.setItem('data', JSON.stringify(updatedItems));
     // отрисовка
     if (updatedItems) {
@@ -55,14 +54,32 @@ export function App() {
 
   const activeTask = (id) => {
     const items = JSON.parse(localStorage.getItem('data')) || [];
-    // удаляем все свойства active
-    //                                                            переделать с useState
     const updatedItems = items.map(({active, ...rest}) => rest);
-    // добавляем нужной задачи active
     const task = updatedItems.find(task => task.id === id);
     task.active = true;
     localStorage.setItem('data', JSON.stringify(updatedItems));
     setActive(task);
+  }
+
+  // Выполнено / невыполнено
+  const completedTask = (id) => {
+    const items = JSON.parse(localStorage.getItem('data')) || [];
+    const task = items.find(task => task.id === id);
+    task.completed = !task.completed;
+    localStorage.setItem('data', JSON.stringify(items));
+    setItems(items.map(item => ({
+      ...item
+    })))
+  }
+
+  const failedTask = (id) => {
+    const items = JSON.parse(localStorage.getItem('data')) || [];
+    const task = items.find(task => task.id === id);
+    task.failed = !task.failed;
+    localStorage.setItem('data', JSON.stringify(items));
+    setItems(items.map(item => ({
+      ...item
+    })))
   }
 
   return (
@@ -70,10 +87,10 @@ export function App() {
       <FormItem addItem={addItem} items={items}/>
       <div className={styles['box']}>
         <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask}/>
-        <ActiveTaskCard items={active}/>
+        <ActiveTaskCard items={active} completedTask={completedTask} failedTask={failedTask}/>
         <div className={styles['box-suc-fai']}>
-          <Success />
-          <Failed />
+          <Success tasks={items} deleteTask={deleteTask}/>
+          <Failed tasks={items} deleteTask={deleteTask}/>
         </div>
       </div>
     </div>
