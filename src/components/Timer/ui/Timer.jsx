@@ -2,23 +2,27 @@ import { useEffect, useState } from 'react';
 import styles from '../timer.module.css';
 // import '../time.sass';
 
-export function Timer({second}) {
+export function Timer({second, pause}) {
     const [time, setTime] = useState(second);
     const [isAnimating, setIsAnimating] = useState(false);
     
     // Таймер
     useEffect(() => {
-        if (time <= 0) return;
+        if (time < 0) return;
 
         const timerId = setInterval(() => {
             setTime(prevTime => prevTime - 1);
         }, 1000);
 
+        // пауза / запуск
+        if (pause) clearInterval(timerId);
+
         return () => {
             clearInterval(timerId);
         };
-    }, [time]);
+    }, [time, pause]);
 
+    // с ключём не актуально
     useEffect(() => {
         // Устанавливаем новое значение времени, если поступило новое значение second
         setTime(second);
