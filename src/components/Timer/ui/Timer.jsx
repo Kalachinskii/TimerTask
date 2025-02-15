@@ -13,8 +13,7 @@ export function Timer({second, pause}) {
         const timerId = setInterval(() => {
             setTime(prevTime => prevTime - 1);
         }, 1000);
-
-        // пауза / запуск
+        // пауза / запуск - баг с милисекундами и анимацией
         if (pause) clearInterval(timerId);
 
         return () => {
@@ -58,11 +57,11 @@ export function Timer({second, pause}) {
                             r="75"
                             strokeWidth="8"
                             fill="none"
-                            className={`${styles['progress']} ${isAnimating ? styles['animate'] : ''}`}
+                            className={`${styles['progress']} ${isAnimating ? styles['animate'] : ''} ${pause ? styles['paused'] : ''}`}
                         />
                     </svg>
                     <div className={styles['counter']}>
-                        {time > 0 || <i className="fa-solid fa-face-tired"></i>}
+                        {time > 0 || <i className="fa-solid fa-hourglass-start"></i>}
                         {time > 0 && new Date(time * 1000).toISOString().substr(11, 8)}
                     </div>
                 </div>

@@ -6,9 +6,6 @@ import { TaskList } from '../../TaskList/taskList';
 import styles from '../app.module.css';
 import { useEffect, useState } from 'react';
 
-
-
-
 export function App() {
   const [items, setItems] = useState([]);
   const [active, setActive] = useState('');
@@ -44,12 +41,6 @@ export function App() {
     }]);
   };
 
-  // временно для рефакторинга
-  const clearLS = () => {
-    localStorage.clear(),
-    localStorage.setItem('data', JSON.stringify([]));
-  }
-
   const deleteTask = (id) => {
     // Получаем текущие элементы из localStorage
     const items = JSON.parse(localStorage.getItem('data')) || [];
@@ -76,7 +67,7 @@ export function App() {
 
   return (
     <div className={styles['app']}>
-      <FormItem addItem={addItem}/>
+      <FormItem addItem={addItem} items={items}/>
       <div className={styles['box']}>
         <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask}/>
         <ActiveTaskCard items={active}/>

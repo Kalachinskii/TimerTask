@@ -48,6 +48,10 @@
     animation: fillCircle var(--my-variable) linear forwards;
 }
 
+.paused {
+    animation-play-state: paused; /* Ставим анимацию на паузу */
+}
+
 @keyframes fillCircle {
     0% {
         stroke-dasharray: 466 0;
@@ -64,4 +68,13 @@
 .stop-mid {
     stop-color: #fbff00;
     stop-opacity: 1;
+}
+
+.counter i {
+    animation: spin 5s linear 0s infinite;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }

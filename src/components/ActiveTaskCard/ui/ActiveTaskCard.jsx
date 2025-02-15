@@ -3,7 +3,7 @@ import { Timer } from '../../Timer/timer';
 import styles from '../activeTaskCard.module.css';
 
 export function ActiveTaskCard({items}) {
-    const [pause, setPause] = useState(false);
+    const [pause, setPause] = useState(true);
     
     return (
         <div className={styles['task-card']}>
@@ -11,9 +11,12 @@ export function ActiveTaskCard({items}) {
                 <>
                     <h1>{items.task}</h1>
                     <Timer key={items.id} second={items.time} activeTask={items} pause={pause}/>
-                    <button onClick={() => setPause(!pause)}>
-                        {pause ? 'запуск' : 'пауза'}
-                    </button>
+                    <div className={styles['play-pause']} onClick={() => setPause(!pause)}>
+                        {pause ? 
+                            <i className="fa-solid fa-play"></i> 
+                            : 
+                            <i className="fa-solid fa-pause"></i>}
+                    </div>
                 </>
             ) : (
                 <>

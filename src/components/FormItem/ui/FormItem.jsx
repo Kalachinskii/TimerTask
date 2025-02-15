@@ -1,12 +1,14 @@
 import { useRef, useState } from 'react';
 import styles from '../formItem.module.css';
 
-export function FormItem({addItem}) {
+export function FormItem({addItem, items}) {
     const [timeError, setTimeError] = useState('');
     const [taskError, setTaskError] = useState('');
     const taskRef = useRef();
     const timeRef = useRef();
     const formRef = useRef();
+    console.log(items);
+    
 
     const addTaskItem = (e) => {
         e.preventDefault();
@@ -15,6 +17,10 @@ export function FormItem({addItem}) {
         const taskValue = formData.get('task');
         if (!taskValue.trim()) {
             setTaskError('Введите задачу');
+            focusInput(taskRef);
+            return;
+        } else if (items.some(el => el.task === taskValue.trim())) {
+            setTaskError('Данная задача существует');
             focusInput(taskRef);
             return;
         }
