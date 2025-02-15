@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 export function App() {
   const [items, setItems] = useState([]);
   const [active, setActive] = useState('');
+  console.log("Active   " + active);
+  
 
   useEffect(() => {
     const key = 'data';
@@ -66,20 +68,27 @@ export function App() {
     const items = JSON.parse(localStorage.getItem('data')) || [];
     const task = items.find(task => task.id === id);
     task.completed = !task.completed;
+    task.active = !task.active;
     localStorage.setItem('data', JSON.stringify(items));
     setItems(items.map(item => ({
       ...item
     })))
+    // очистка карточки
+    setActive('')
   }
 
+  // провалено
   const failedTask = (id) => {
     const items = JSON.parse(localStorage.getItem('data')) || [];
     const task = items.find(task => task.id === id);
     task.failed = !task.failed;
+    task.active = !task.active;
     localStorage.setItem('data', JSON.stringify(items));
     setItems(items.map(item => ({
       ...item
     })))
+    // очистка карточки
+    setActive('')
   }
 
   return (

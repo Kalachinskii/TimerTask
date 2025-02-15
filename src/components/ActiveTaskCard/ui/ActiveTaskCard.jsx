@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { Timer } from '../../Timer/timer';
 import styles from '../activeTaskCard.module.css';
 
-export function ActiveTaskCard({items, completedTask, failedTask}) {
-    const [pause, setPause] = useState(true);    
+export function ActiveTaskCard({ items, completedTask, failedTask }) {
+    const [pause, setPause] = useState(true);
 
     return (
         <div className={styles['task-card']}>
-            {items ? (
+            {items.active ? (
                 <>
                     <h1>{items.task}</h1>
                     <Timer key={items.id} second={items.time} id={items.id} pause={pause} failedTask={failedTask}/>
@@ -24,7 +24,6 @@ export function ActiveTaskCard({items, completedTask, failedTask}) {
             ) : (
                 <>
                     <h1>{"Нет активностей"}</h1>
-                    {/* <Timer second={0} /> */}
                 </>
             )}
         </div>
