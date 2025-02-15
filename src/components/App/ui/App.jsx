@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 
 export function App() {
   const [items, setItems] = useState([]);
+  const [active, setActive] = useState('');
 
   useEffect(() => {
     const key = 'data';
@@ -61,19 +62,29 @@ export function App() {
       setItems(updatedItems.map(item => ({...item})))}
   }
 
+  const activeTask = (id) => {
+    const items = JSON.parse(localStorage.getItem('data')) || [];
+    // удаляем все свойства active
+    //                                                            переделать с useState
+    const updatedItems = items.map(({active, ...rest}) => rest);
+    // добавляем нужной задачи active
+    const task = updatedItems.find(task => task.id === id);
+    task.active = true;
+    localStorage.setItem('data', JSON.stringify(updatedItems));
+    setActive(task);
+  }
+
   return (
     <div className={styles['app']}>
       <FormItem addItem={addItem}/>
       <div className={styles['box']}>
-        <TaskList tasks={items} deleteTask={deleteTask}/>
-        <ActiveTaskCard />
+        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask}/>
+        <ActiveTaskCard items={active}/>
         <div className={styles['box-suc-fai']}>
           <Success />
           <Failed />
         </div>
       </div>
-      {/* очистка ЛС */}
-      <button style={{marginTop: '25px'}} onClick={clearLS}>Очистить ЛС</button>
     </div>
   )
 }

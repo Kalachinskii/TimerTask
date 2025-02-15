@@ -40,9 +40,12 @@
 .progress {
     stroke-dasharray: 0 314;
     stroke-dashoffset: 0;
-    animation: fillCircle var(--my-variable) linear forwards;
     stroke: url(#gradient);
     filter: drop-shadow(0 0 10px #7e4e078a);
+}
+
+.animate {
+    animation: fillCircle var(--my-variable) linear forwards;
 }
 
 @keyframes fillCircle {

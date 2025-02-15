@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import styles from '../taskList.module.css';
 
-export function TaskList({tasks, deleteTask}) {
+export function TaskList({tasks, deleteTask, activeTask}) {
     return (
         <div className={styles['task-list']}>
             <h1>Задачи</h1>
             
             <div className={styles['tasks']}>
                 {tasks.map(el => (
-                    <div className={styles["task"]} key={el.id}> 
+                    <div className={styles["task"]} key={el.id} onClick={() => activeTask(el.id)}> 
                         <div className={styles["task-time"]}>
-                        {/* <h2>{el.id}</h2> */}
                             <h3>{el.task}</h3>
                             <h5>
                                 <span>Время: </span>
