@@ -3,7 +3,26 @@ import styles from '../taskList.module.css';
 export function TaskList({tasks, deleteTask, activeTask}) {
     return (
         <div className={styles['task-list']}>
-            <h1>Задачи</h1>
+            <div className={styles['btn-list']}>
+                <div className={styles['btn-task', 'btn-box']}>
+                    <div className={styles['quantity']}>
+                        <span>16</span>
+                    </div>
+                    <p>Задачи</p>
+                </div>
+                <div className={styles['btn-success', 'btn-box']}>
+                    <div className={styles['quantity']}>
+                        <span>6</span>
+                    </div>
+                    <p>Выполено</p>
+                </div>
+                <div className={styles['btn-failed', 'btn-box']}>
+                    <div className={styles['quantity']}>
+                        <span>6</span>
+                    </div>
+                    <p>Провалено</p>
+                </div>
+            </div>
             
             <div className={styles['tasks']}>
                 {tasks.map(el => !el.failed && !el.completed && (

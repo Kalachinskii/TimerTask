@@ -1,5 +1,5 @@
 .task-list {
-    min-width: 300px;
+    width: 450px;
     height: 416px;
     color: #f0e3ca;
     border: 1px solid #a35709;
@@ -7,25 +7,8 @@
     margin-top: 1%;
     background: #1f1e1b;
     overflow: hidden;
-    /* padding: 5% 0 !important; */
-    /* margin: 5% 0 !important; */
-}
-
-h5 span {
-    padding-right: 10px;
-}
-
-h5 {
-    color: #757575;
-    font-weight: 400;
-}
-
-.task-time {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 5px;
-    min-height: 50px;
 }
 
 .tasks {
@@ -47,7 +30,6 @@ h5 {
     justify-content: space-between;
     border-top: 1px solid #a35709;
     border-bottom: 1px solid #a35709;
-    min-height: 45px;
 }
 
 .task:hover {
@@ -59,10 +41,20 @@ h5 {
     border-bottom: none;
 }
 
+.task-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 325px;
+    padding: 10px 0 10px 5px;
+}
+
 .task-btn {
     display: flex;
-    width: 50px;
-    justify-content: space-between;
+    width: 75px;
+    /* border: 1px solid green; */
+    justify-content: space-around;
 }
 
 .task-btn i:last-child {
@@ -77,4 +69,60 @@ h5 {
 .task-btn i:last-child:hover {
     color: red;
     cursor: pointer;
+}
+
+.task-list h3 {
+    /* border: 1px solid red; */
+    word-wrap: break-word;
+    line-height: 20px;
+    width: 85%;
+    overflow: hidden;
+}
+
+h5 span {
+    padding-right: 10px;
+}
+
+h5 {
+    color: #757575;
+    font-weight: 400;
+}
+
+/* btn */
+.btn-list {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    background: #1B1A17;
+    height: 15%;
+}
+
+.btn-box {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn-box:hover {
+    box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
+    inset 0px 0px 8px rgba(163, 87, 9, 0.8);
+}
+
+.btn-box p {
+    width: 100px;
+    margin-left: 10px;
+}
+
+.quantity {
+    width: 32px;
+    height: 65%;
+    border: 1px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
