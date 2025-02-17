@@ -3,7 +3,7 @@ import styles from '../taskList.module.css';
 import BtnList from './BtnList';
 import Task from './Task';
 
-export function TaskList({tasks, deleteTask, activeTask}) {
+export function TaskList({tasks, deleteTask, activeTask, restoreTask}) {
     const [btnState, setBtnState] = useState(0);
 
     return (
@@ -16,11 +16,11 @@ export function TaskList({tasks, deleteTask, activeTask}) {
                 ))}
                 {/* Выполненые */}
                 {btnState === 1 && tasks.map(el => el.completed && (
-                    <Task key={el.id} activeTask={activeTask} deleteTask={deleteTask} el={el}/>
+                    <Task key={el.id} deleteTask={deleteTask} el={el} />
                 ))}
                 {/* Проваленные */}
                 {btnState === 2 && tasks.map(el => el.failed && (
-                    <Task key={el.id} activeTask={activeTask} deleteTask={deleteTask} el={el}/>
+                    <Task key={el.id} deleteTask={deleteTask} el={el} restoreTask={restoreTask}/>
                 ))}
             </div>
         </div>

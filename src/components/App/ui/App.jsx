@@ -60,7 +60,7 @@ export function App() {
     setActive(task);
   }
 
-  // Выполнено / провалено
+  // Выполнено / провалено / востановление
   const isTaskCompleted = (id, state) => {
     const items = JSON.parse(localStorage.getItem('data')) || [];
     const task = items.find(task => task.id === id);
@@ -78,7 +78,7 @@ export function App() {
     <div className={styles['app']}>
       <FormItem addItem={addItem} items={items}/>
       <div className={styles['box']}>
-        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask} />
+        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask} restoreTask={isTaskCompleted}/>
         <ActiveTaskCard items={active} completedTask={isTaskCompleted} failedTask={isTaskCompleted} clouseCard={setActive}/>
       </div>
     </div>

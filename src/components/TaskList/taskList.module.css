@@ -51,14 +51,11 @@
 }
 
 .task-btn {
-    position: relative;
-    z-index: 10;
+    display: flex;
 }
 
-.task-btn {
-    display: flex;
-    width: 75px;
-    justify-content: space-around;
+.failed {
+    padding-right: 10px;
 }
 
 .task-btn i:last-child {
@@ -99,7 +96,7 @@ h5 {
     width: 100%;
     align-items: center;
     background: #1B1A17;
-    height: 15%;
+    height:5%;
 }
 
 .btn-box {
@@ -110,19 +107,48 @@ h5 {
     cursor: pointer;
 }
 
-.btn-box:hover {
-    box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
-    inset 0px 0px 8px rgba(163, 87, 9, 0.8);
+.btn-box:nth-child(1):hover {
+    background-color: #FFD700;
+}
+.btn-box:nth-child(2):hover {
+    background-color: #32CD32;
+}
+.btn-box:nth-child(3):hover {
+    background-color: #FF4500;
 }
 
-.btn-box p {
-    width: 100%;
-    text-align: center;
+.btn-box:hover {
+    border: none;
 }
 
 .btn-box span {
     width: 100%;
     text-align: center;
+}
+.count1 {
+    color: #FFD700;
+}
+.count2 {
+    color: #32CD32;
+}
+.count3 {
+    color: #FF4500;
+}
+
+.btn-box:hover span {
+    opacity: 0;
+}
+
+.btn-box:nth-child(1) {
+    border: 1px solid #A35709;
+    border-radius: 25px 0px 0 0 ;
+}
+.btn-box:nth-child(2) {
+    border: 1px solid #A35709;
+}
+.btn-box:nth-child(3) {
+    border: 1px solid #A35709;
+    border-radius: 0px 25px 0 0 ;
 }
 
 .quantity {
@@ -133,9 +159,4 @@ h5 {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-}
-
-.active {
-    box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
-    inset 0px 0px 8px rgba(163, 87, 9, 0.8);
 }

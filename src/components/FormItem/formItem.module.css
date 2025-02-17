@@ -72,3 +72,12 @@ i {
 .error {
     background: rgba(255, 0, 0, 0.075) !important;
 }
+
+.error-box {
+    width: 40%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

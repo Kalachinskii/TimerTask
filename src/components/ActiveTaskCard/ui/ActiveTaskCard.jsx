@@ -9,10 +9,12 @@ export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard })
         <div className={styles['task-card']}>
             {items.active ? (
                 <>
-                    <h1>
-                        {items.task}
-                        <i onClick={() => clouseCard('')} className={`${"fa-solid fa-xmark"}`}></i>
-                    </h1>
+                    <div className={styles['text']}>
+                        <h1>
+                            {items.task}
+                            <i onClick={() => clouseCard('')} className={`${"fa-solid fa-xmark"}`}></i>
+                        </h1>
+                    </div>
                     <Timer key={items.id} second={items.time} id={items.id} pause={pause} failedTask={failedTask}/>
                     <div className={styles['play-pause']} onClick={() => setPause(!pause)}>
                         {pause ? 

@@ -47,7 +47,7 @@ export function FormItem({addItem, items}) {
 
     return (
         <>
-            <div>
+            <div className={styles['error-box']}>
                 {taskError && <p style={{ color: 'red' }}>{taskError}</p>}
                 {timeError && <p style={{ color: 'red' }}>{timeError}</p>}
             </div>

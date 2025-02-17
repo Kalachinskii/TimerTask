@@ -5,10 +5,9 @@ export default function BtnList({tasks, setBtnState}) {
 
     const btnsOut = btns.map((el, ind) => (
         <div key={ind} onClick={() => setBtnState(ind)} className={styles['btn-task', 'btn-box']}>
-            <p>{el}</p>
-        {ind == 0 && <span>{tasks.filter(task => !task.failed && !task.completed).length}</span>}
-        {ind == 1 && <span>{tasks.filter(task => task.completed).length}</span>}
-        {ind == 2 && <span>{tasks.filter(task => task.failed).length}</span>}
+        {ind == 0 && <span className={styles['count1']}>{el}: {tasks.filter(task => !task.failed && !task.completed).length}</span>}
+        {ind == 1 && <span className={styles['count2']}>{el}: {tasks.filter(task => task.completed).length}</span>}
+        {ind == 2 && <span className={styles['count3']}>{el}: {tasks.filter(task => task.failed).length}</span>}
     </div>
     ));
 
