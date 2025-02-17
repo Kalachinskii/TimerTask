@@ -1,6 +1,7 @@
 {
   "name": "time",
   "private": true,
+  "homepage": "https://Kalachinskii.github.io/TimerTask",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
