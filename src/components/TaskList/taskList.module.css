@@ -52,8 +52,7 @@
 
 .task-btn {
     display: flex;
-    width: 75px;
-    /* border: 1px solid green; */
+    width: 35px;
     justify-content: space-around;
 }
 
@@ -125,4 +124,9 @@ h5 {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+
+.active {
+    box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
+    inset 0px 0px 8px rgba(163, 87, 9, 0.8);
 }

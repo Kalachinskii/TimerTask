@@ -17,6 +17,20 @@ h1 {
     width: 100%;
     padding: 15px 0;
     text-align: center;
+    position: relative;
+}
+
+h1 i {
+    position: absolute;
+    color: #a3560948;
+    top: 4%;
+    right: 3%;
+    font-size: 28px;
+}
+
+h1 i:hover {
+    color: red;
+    cursor: pointer;
 }
 
 .task-card .play-pause i,

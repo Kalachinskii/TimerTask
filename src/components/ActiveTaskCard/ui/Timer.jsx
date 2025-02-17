@@ -10,7 +10,7 @@ export function Timer({second, pause, id, failedTask}) {
     useEffect(() => {
         if (time < 0) return;
         if (time === 0) {
-            failedTask(id);
+            failedTask(id, 'failed');
         };
 
         const timerId = setInterval(() => {

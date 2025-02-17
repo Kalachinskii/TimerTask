@@ -1,6 +1,4 @@
-import { Failed } from '../../Failed/failed';
 import { FormItem } from '../../FormItem/formItem';
-import { Success } from '../../Success/success';
 import { ActiveTaskCard } from '../../ActiveTaskCard/ActiveTaskCard';
 import { TaskList } from '../../TaskList/taskList';
 import styles from '../app.module.css';
@@ -9,8 +7,6 @@ import { useEffect, useState } from 'react';
 export function App() {
   const [items, setItems] = useState([]);
   const [active, setActive] = useState('');
-  console.log("Active   " + active);
-  
 
   useEffect(() => {
     const key = 'data';
@@ -20,6 +16,7 @@ export function App() {
     }
     // если данные есть - вытаскиваем
     const data = JSON.parse(localStorage.getItem(key));
+    
     if (data) {
       setItems(data.map(item => ({
         ...item
@@ -63,25 +60,11 @@ export function App() {
     setActive(task);
   }
 
-  // Выполнено / невыполнено
-  const completedTask = (id) => {
+  // Выполнено / провалено
+  const isTaskCompleted = (id, state) => {
     const items = JSON.parse(localStorage.getItem('data')) || [];
     const task = items.find(task => task.id === id);
-    task.completed = !task.completed;
-    task.active = !task.active;
-    localStorage.setItem('data', JSON.stringify(items));
-    setItems(items.map(item => ({
-      ...item
-    })))
-    // очистка карточки
-    setActive('')
-  }
-
-  // провалено
-  const failedTask = (id) => {
-    const items = JSON.parse(localStorage.getItem('data')) || [];
-    const task = items.find(task => task.id === id);
-    task.failed = !task.failed;
+    task[state] = !task[state];
     task.active = !task.active;
     localStorage.setItem('data', JSON.stringify(items));
     setItems(items.map(item => ({
@@ -95,12 +78,8 @@ export function App() {
     <div className={styles['app']}>
       <FormItem addItem={addItem} items={items}/>
       <div className={styles['box']}>
-        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask}/>
-        <ActiveTaskCard items={active} completedTask={completedTask} failedTask={failedTask}/>
-        <div className={styles['box-suc-fai']}>
-          <Success tasks={items} deleteTask={deleteTask}/>
-          <Failed tasks={items} deleteTask={deleteTask}/>
-        </div>
+        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask} />
+        <ActiveTaskCard items={active} completedTask={isTaskCompleted} failedTask={isTaskCompleted} clouseCard={setActive}/>
       </div>
     </div>
   )

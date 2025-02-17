@@ -6,9 +6,7 @@ export function FormItem({addItem, items}) {
     const [taskError, setTaskError] = useState('');
     const taskRef = useRef();
     const timeRef = useRef();
-    const formRef = useRef();
-    console.log(items);
-    
+    const formRef = useRef(); 
 
     const addTaskItem = (e) => {
         e.preventDefault();
