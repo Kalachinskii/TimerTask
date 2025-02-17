@@ -43,9 +43,14 @@ h1 i:hover {
     justify-content: center;
     align-items: center;
     font-size: 22px;
+    border: 1px solid #A35709;
+    border-radius: 25px;
+}
+
+.play-pause i:hover,
+.completed i:hover {
     box-shadow: 1px 1px 3px rgba(163, 87, 9, 0.5), 
     inset 0px 0px 8px rgba(163, 87, 9, 0.8);
-    border-radius: 25px;
 }
 
 .task-card .play-pause i {

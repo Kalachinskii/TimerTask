@@ -51,8 +51,13 @@
 }
 
 .task-btn {
+    position: relative;
+    z-index: 10;
+}
+
+.task-btn {
     display: flex;
-    width: 35px;
+    width: 75px;
     justify-content: space-around;
 }
 
@@ -101,8 +106,7 @@ h5 {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     cursor: pointer;
 }
 
@@ -112,8 +116,13 @@ h5 {
 }
 
 .btn-box p {
-    width: 100px;
-    margin-left: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-box span {
+    width: 100%;
+    text-align: center;
 }
 
 .quantity {
