@@ -11,6 +11,7 @@ export function Timer({second, pause, id, failedTask}) {
         if (time < 0) return;
         if (time === 0) {
             failedTask(id, 'failed');
+            alert('Время вышло !');
         };
 
         const timerId = setInterval(() => {
