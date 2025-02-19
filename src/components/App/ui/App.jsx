@@ -1,8 +1,10 @@
 import { FormItem } from '../../FormItem/formItem';
 import { ActiveTaskCard } from '../../ActiveTaskCard/ActiveTaskCard';
 import { TaskList } from '../../TaskList/taskList';
+// import { Par } from '../../TaskList/taskList';
 import styles from '../app.module.css';
 import { useEffect, useState } from 'react';
+import { ParticlesColors } from '../../Particles/particlesColors';
 
 export function App() {
   const [items, setItems] = useState([]);
@@ -76,6 +78,7 @@ export function App() {
 
   return (
     <div className={styles['app']}>
+      <ParticlesColors />
       <FormItem addItem={addItem} items={items}/>
       <div className={styles['box']}>
         <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask} restoreTask={isTaskCompleted}/>
