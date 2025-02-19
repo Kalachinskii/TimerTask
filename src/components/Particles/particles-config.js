@@ -34,8 +34,9 @@ const particlesConfig = {
         detectsOn: "window",
         events: {
             onClick: {
-                enable: false,
-                mode: [],
+                // при клике добовлять частицы
+                enable: true,
+                mode: "push",
             },
             onDiv: {
                 selectors: [],
