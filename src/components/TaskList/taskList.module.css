@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     backdrop-filter: invert(80%);
+    /* position: absolute; */
 }
 
 .tasks {
@@ -109,13 +110,13 @@ h5 {
 }
 
 .btn-box:nth-child(1):hover {
-    background-color: #FFD700;
+    background-color: #FFD70042;
 }
 .btn-box:nth-child(2):hover {
-    background-color: #32CD32;
+    background-color: #32cd3242;
 }
 .btn-box:nth-child(3):hover {
-    background-color: #FF4500;
+    background-color: #FF450042;
 }
 
 .btn-box:hover {
@@ -137,7 +138,8 @@ h5 {
 }
 
 .btn-box:hover span {
-    opacity: 0;
+    color: #ffffff;
+    font-weight: 400;
 }
 
 .btn-box:nth-child(1) {
@@ -160,4 +162,12 @@ h5 {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+
+.no-active {
+    display: none;
+}
+
+.active {
+    display: flex;
 }

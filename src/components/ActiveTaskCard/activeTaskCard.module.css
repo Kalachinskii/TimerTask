@@ -7,10 +7,11 @@
     justify-content: flex-end;
     align-items: end;
     border: 1px solid #A35709;
-    /* backdrop-filter: invert(80%); */
+    backdrop-filter: invert(80%);
     background-color: #1f1e1b;
     border-radius: 25px;
     padding-bottom: 25px;
+    /* position: absolute; */
 }
 
 .task-card h1 {
@@ -80,3 +81,10 @@
     height: 100%;
 }
 
+.no-active {
+    display: flex;
+}
+
+.active {
+    display: none;
+}

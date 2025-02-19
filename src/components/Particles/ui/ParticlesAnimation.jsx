@@ -4,7 +4,7 @@ import Particles from "react-particles";
 import particlesConfig from "../particles-config";
 import '../style.css'
 
-export const ParticlesColors = () => {
+export const ParticlesAnimation = () => {
     const particlesInit = useCallback(async engine => {
         await loadSlim(engine);
     }, []);

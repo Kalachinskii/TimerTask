@@ -3,11 +3,11 @@ import styles from '../taskList.module.css';
 import BtnList from './BtnList';
 import Task from './Task';
 
-export function TaskList({tasks, deleteTask, activeTask, restoreTask}) {
+export function TaskList({tasks, deleteTask, activeTask, restoreTask, active}) {
     const [btnState, setBtnState] = useState(0);
 
     return (
-        <div className={styles['task-list']}>
+        <div className={`${styles['task-list']} ${active ? styles['no-active'] : styles['active']}`}>
             <BtnList tasks={tasks} setBtnState={setBtnState}/>
             <div className={styles['tasks']}>
                 {/* Активные */}
