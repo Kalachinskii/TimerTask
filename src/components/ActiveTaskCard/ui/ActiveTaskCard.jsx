@@ -6,7 +6,7 @@ export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard })
     const [pause, setPause] = useState(true);
 
     return (
-        <div className={styles['task-card']}>
+        <div className={`${styles['task-card']} ${items ? styles['no-active'] : styles['active']}`}>
             {items.active ? (
                 <>
                     <div className={styles['text']}>
@@ -32,3 +32,4 @@ export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard })
         </div>
     );
 }
+// transform: rotateY(20deg);

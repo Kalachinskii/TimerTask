@@ -3,6 +3,7 @@ import { ActiveTaskCard } from '../../ActiveTaskCard/ActiveTaskCard';
 import { TaskList } from '../../TaskList/taskList';
 import styles from '../app.module.css';
 import { useEffect, useState } from 'react';
+import { ParticlesAnimation } from '../../Particles/particlesAnimation';
 
 export function App() {
   const [items, setItems] = useState([]);
@@ -76,9 +77,10 @@ export function App() {
 
   return (
     <div className={styles['app']}>
+      <ParticlesAnimation />
       <FormItem addItem={addItem} items={items}/>
       <div className={styles['box']}>
-        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask} restoreTask={isTaskCompleted}/>
+        <TaskList tasks={items} deleteTask={deleteTask} activeTask={activeTask} restoreTask={isTaskCompleted} active={active}/>
         <ActiveTaskCard items={active} completedTask={isTaskCompleted} failedTask={isTaskCompleted} clouseCard={setActive}/>
       </div>
     </div>

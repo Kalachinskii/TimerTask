@@ -20,7 +20,8 @@
     border: 1px solid rgb(163, 87, 9);
     background: #1f1e1b;
     padding-left: 25px;
-    color: #F0E3CA;
+    color: #f0caca;
+    /* backdrop-filter: invert(80%); */
 }
 
 .formItem input:hover {
@@ -47,6 +48,7 @@
     border-radius: 50%;
     border: 1px solid #A35709;
     background: #1f1e1b;
+    backdrop-filter: invert(80%);
 }
 
 .btn:hover {
@@ -70,7 +72,7 @@ i {
 }
 
 .error {
-    background: rgba(255, 0, 0, 0.075) !important;
+    background: rgb(63, 4, 4) !important;
 }
 
 .error-box {
@@ -80,6 +82,12 @@ i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-shadow: 1px 1px 10px rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 24px;
+    /* backdrop-filter: invert(4%); */
+    /* border-radius: 50%; */
+    /* border: 1px solid red; */
 }
 
 @media screen and (max-width: 1440px) {
