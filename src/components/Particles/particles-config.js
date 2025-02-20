@@ -35,7 +35,7 @@ const particlesConfig = {
         events: {
             onClick: {
                 // при клике добовлять частицы
-                enable: true,
+                enable: false,
                 mode: "push",
             },
             onDiv: {

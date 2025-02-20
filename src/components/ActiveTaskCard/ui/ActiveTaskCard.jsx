@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Timer } from './Timer';
 import styles from '../activeTaskCard.module.css';
 
 export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard }) {
-    const [pause, setPause] = useState(true);
+    const [pause, setPause] = useState(items && false);
 
     return (
         <div className={`${styles['task-card']} ${items ? styles['no-active'] : styles['active']}`}>
@@ -11,7 +11,7 @@ export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard })
                 <>
                     <div className={styles['text']}>
                         <h1>{items.task}</h1>
-                        <i onClick={() => clouseCard('')} ></i>
+                        <i onClick={() => {clouseCard(''); setPause(false)}} ></i>
                     </div>
                     <Timer key={items.id} second={items.time} id={items.id} pause={pause} failedTask={failedTask}/>
                     <div className={styles['play-pause']} onClick={() => setPause(!pause)}>
@@ -20,8 +20,8 @@ export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard })
                             : 
                             <i className="fa-solid fa-pause"></i>}
                     </div>
-                    <div className={styles['completed']} onClick={() => completedTask(items.id, 'completed')}>
-                        <i className="fa-solid fa-check"></i>
+                    <div className={styles['completed']} onClick={() => {completedTask(items.id, 'completed'); setPause(false)}}>
+                        <i className="fa-solid fa-check" ></i>
                     </div>
                 </>
             ) : (
@@ -32,4 +32,3 @@ export function ActiveTaskCard({ items, completedTask, failedTask, clouseCard })
         </div>
     );
 }
-// transform: rotateY(20deg);

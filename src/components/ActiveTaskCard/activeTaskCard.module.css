@@ -41,9 +41,13 @@
     border-radius: 0% 50% 0 100%;
 }
 
+.task-card .text i {
+    animation: back 4s infinite;
+}
 
 .task-card .text i:hover {
-    background-color: red;
+    background: rgba(255, 0, 0, 0.425) !important;
+    /* animation-play-state: paused; */
 }
 
 .task-card .play-pause i,
@@ -87,4 +91,16 @@
 
 .active {
     display: none;
+}
+
+@keyframes back {
+    0% {
+        background: #1f1e1b;
+    }
+    50% {
+        background: rgba(255, 0, 0, 0.205);
+    }
+    100% {
+        background: #1f1e1b;
+    }
 }
